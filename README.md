@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 3D Developer Room Portfolio
 
-## Getting Started
+An interactive, low-poly developer room built entirely in code with Next.js and React Three Fiber.
+Visitors click objects in the room to explore: the **monitor** (projects), the **bookshelf**
+(skills, one book per skill), the **wall frame** (about + experience), the **phone** (contact),
+and the **coffee mug** (easter egg). It includes a day/night switch and a fast, accessible
+**classic view** (`?view=classic`).
 
-First, run the development server:
+## Edit your content
+
+Everything you'd want to change lives in **`src/data/portfolio.ts`**: name, bio, email, socials,
+projects, skills, experience, education and fun facts. Both the 3D room and the classic view
+read from it.
+
+- Resume: put `resume.pdf` in `public/` and set `resumeUrl: "/resume.pdf"`.
+- After deploying, set `siteUrl` to your real URL (used for SEO, sitemap and share previews).
+
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Useful URL flags: `?perf` (FPS stats), `?quality=low|high` (force render quality),
+`?view=classic` (open the classic view).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy (Vercel)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Push this repo to GitHub.
+2. In Vercel, **Add New → Project**, import the repo and keep the defaults.
+3. Every push to `main` redeploys automatically.
 
-## Learn More
+## How it's built
 
-To learn more about Next.js, take a look at the following resources:
+| Area | Where |
+| --- | --- |
+| Scene setup, quality, post-processing | `src/components/canvas/Experience.tsx`, `Effects.tsx` |
+| Room objects (all made from primitives) | `src/components/canvas/objects/` |
+| Camera flights and framing | `src/components/canvas/CameraRig.tsx`, `src/lib/hotspots.ts` |
+| Day/night lighting | `src/components/canvas/Lights.tsx` |
+| Canvas-drawn textures (code screen, book spines, posters) | `src/lib/textures.ts` |
+| Overlay UI (loader, intro, HUD, panels) | `src/components/ui/` |
+| Classic view + shared content blocks | `src/components/classic/`, `src/components/sections/` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Stack: Next.js 16, React 19, TypeScript, Tailwind CSS 4, three.js, @react-three/fiber, drei,
+@react-three/postprocessing, GSAP, Motion, Lenis and Zustand.
