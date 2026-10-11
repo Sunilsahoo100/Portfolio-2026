@@ -86,13 +86,21 @@ export function AboutContent() {
         <ol className="timeline">
           {experience.map((e) => (
             <li key={e.role + e.company}>
-              <p className="timeline-period">{e.period}</p>
+              <p className="timeline-period">
+                {e.period}
+                {e.location && ` · ${e.location}`}
+              </p>
               <p className="timeline-role">
                 {e.role} · <span>{e.company}</span>
               </p>
               <ul>
                 {e.points.map((pt) => (
                   <li key={pt}>{pt}</li>
+                ))}
+              </ul>
+              <ul className="tags" aria-label="Tech stack">
+                {e.tech.map((t) => (
+                  <li key={t}>{t}</li>
                 ))}
               </ul>
             </li>
@@ -128,7 +136,11 @@ export function ContactContent() {
       </p>
       <div className="contact-row">
         <a className="btn btn-primary" href={`mailto:${profile.email}`}>
-          Say hello ✉
+          Say hello
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="m3 7 9 6 9-6" />
+          </svg>
         </a>
         <button type="button" className="btn" onClick={copy}>
           {copied ? "Copied!" : "Copy email"}

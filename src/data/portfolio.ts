@@ -32,7 +32,9 @@ export interface Experience {
   role: string;
   company: string;
   period: string;
+  location?: string;
   points: string[];
+  tech: string[];
 }
 
 export const profile = {
@@ -85,13 +87,21 @@ export const projects: Project[] = [
     accent: "#f472b6",
   },
   {
-    title: "Quote Master",
-    tagline: "AI quote app for mobile",
+    title: "EaseApply",
+    tagline: "One-click job application filler",
     description:
-      "A cross-platform mobile app for discovering and generating quotes with AI, with a feed, chat and profile screens. Backed by an Express API with JWT authentication and MongoDB.",
-    tech: ["React Native", "Expo", "Express", "MongoDB", "JWT", "Gemini AI"],
-    github: "https://github.com/Sunilsahoo100/Quote-Master-Frontend",
+      "A Chrome extension that fills job application forms from your saved profile and resume, and drafts answers to custom questions with Google Gemini, tailored to the job description. You review every draft before it's filled. All data stays on your device, and the extension never submits a form for you.",
+    tech: ["Angular", "TypeScript", "Chrome Extension", "Gemini AI", "Vite", "Vitest"],
+    github: "https://github.com/Sunilsahoo100/EaseApply",
     accent: "#fbbf24",
+  },
+  {
+    title: "Devshila",
+    tagline: "E-commerce for stone statues",
+    description:
+      "Eternal Stone Gallery, a full-stack online store for handcrafted stone statues. Shoppers get email-OTP sign-in, search, cart, wishlist, Razorpay checkout, order tracking and reviews. Admins get a dashboard with sales charts, product, order and user management, and sales, product and customer reports.",
+    tech: ["Angular", "Spring Boot", "Spring Security", "MySQL", "Razorpay", "Chart.js", "Docker"],
+    accent: "#34d399",
   },
   {
     title: "LinkUp",
@@ -101,16 +111,6 @@ export const projects: Project[] = [
     tech: ["React", "Django", "MySQL", "Docker"],
     github: "https://github.com/Sunilsahoo100/LinkUp",
     accent: "#60a5fa",
-  },
-  {
-    title: "Vehicle Stoppage Visualizer",
-    tagline: "Find and map vehicle stoppages",
-    description:
-      "A React web app that parses GPS trip data from CSV, identifies where a vehicle stopped, and visualises the route and stoppages on Google Maps with clustered markers.",
-    tech: ["React", "TypeScript", "Google Maps", "PapaParse"],
-    github: "https://github.com/Sunilsahoo100/Vehicle_Stoppage_Identification-_and_Visualization",
-    live: "https://vehicle-stoppage-identification-and-visualization-tau.vercel.app",
-    accent: "#34d399",
   },
   {
     title: "Bill Manager",
@@ -177,21 +177,24 @@ export const experience: Experience[] = [
     role: "Software Engineer",
     company: "EvA - Evolutionary Algorithms",
     period: "Mar 2025 — Present",
+    location: "Bhubaneswar, India",
     points: [
-      "Architected a micro-frontend architecture using Angular and Webpack Module Federation, improving load times by 40%.",
-      "Mentored a team of 5 junior engineers, conducting code reviews and technical deep dives.",
-      "Optimized CI/CD pipelines, reducing deployment times by 25% across multiple environments.",
+      "Split a monolithic Angular app into independently deployable micro-frontends using Webpack Module Federation, cutting initial load time by 40%.",
+      "Optimized the CI/CD pipeline, reducing deployment time by 25% across dev, staging and production environments.",
+      "Supported 3 junior engineers through code reviews and technical deep-dives on the frontend codebase.",
     ],
+    tech: ["Angular", "TypeScript", "GraphQL", "AWS"],
   },
   {
     role: "Trainee Engineer (Intern)",
     company: "Qualibar",
     period: "May 2024 — Jul 2024",
     points: [
-      "Designed and implemented scalable RESTful APIs that handled over 10k requests per second during peak sale events.",
-      "Integrated automated testing suites exceeding 90% coverage for mission-critical payment services.",
-      "Collaborated with cross-functional product and design teams to deliver seamless checkout flows.",
+      "Built RESTful APIs in Spring Boot for the checkout service, serving 10k+ requests/sec during peak sale events.",
+      "Wrote unit and integration tests for payment-flow modules, reaching 90%+ code coverage.",
+      "Worked with product and design teams to ship improvements to the checkout flow.",
     ],
+    tech: ["Spring Boot", "PostgreSQL", "Redis"],
   },
 ];
 
