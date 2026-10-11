@@ -6,6 +6,16 @@ Visitors click objects in the room to explore: the **monitor** (projects), the *
 and the **coffee mug** (easter egg). It includes a day/night switch and a fast, accessible
 **classic view** (`?view=classic`).
 
+## Screenshots
+
+**3D room:** each label is a clickable object.
+
+![The 3D developer room at night, with Skills, About, Projects and Contact labels on the bookshelf, wall frame, monitor and phone](docs/screenshots/room.png)
+
+**Classic view:** the same content as a scrolling page.
+
+![The classic view, showing the hero, About me and the start of the experience timeline](docs/screenshots/classic.png)
+
 ## Edit your content
 
 Everything you'd want to change lives in **`src/data/portfolio.ts`**: name, bio, email, socials,
